@@ -11,7 +11,7 @@ import codecs
 import os
 import numpy as np
 
-os.chdir("C:\\Users\\jbk48\\OneDrive\\바탕 화면\\nsmc-master")
+os.chdir("C:\\Users\\jbk48\\OneDrive\\바탕 화면\\Movie_rating_data")
 
 ## import model
 model = gensim.models.word2vec.Word2Vec.load('Word2vec.model')
