@@ -14,7 +14,7 @@ import Word2Vec
 
 W2V = Word2Vec.Word2Vec()
 
-os.chdir("C:\\Users\\jbk48\\OneDrive\\바탕 화면\\nsmc-master")
+os.chdir("C:\\Users\\jbk48\\Desktop\\Sentimental-Analysis-master\\Sentimental-Analysis-master\\Word2Vec\\Movie_rating_data")
 train_data = W2V.read_data("ratings_train.txt")
 
 ## tokenize the data we have
@@ -26,7 +26,7 @@ print("Tokenize Done!")
 train_X = tokens[:,0]
 train_Y = tokens[:,1]
 
-
+os.chdir("C:\\Users\\jbk48\\Desktop\\Sentimental-Analysis-master\\Sentimental-Analysis-master\\Word2Vec")
 train_Y_ = W2V.One_hot(train_Y)  ## Convert to One-hot
 train_X_ = W2V.Convert2Vec("Word2vec.model",train_X)  ## import word2vec model where you have trained before
 
@@ -43,6 +43,23 @@ training_epochs = 10
 X = tf.placeholder(tf.float32, shape = [None, Maxseq_length, Vector_size], name = 'X')
 Y = tf.placeholder(tf.float32, shape = [None, num_class], name = 'Y')
 seq_len = tf.placeholder(tf.int32, shape = [None])
+
+BiLSTM = Bi_LSTM.Bi_LSTM(lstm_units, Maxseq_length, num_class)
+
+with tf.variable_scope("loss", reuse = tf.AUTO_REUSE):
+    logits = BiLSTM.logits(X, BiLSTM.W, BiLSTM.b, seq_len, Maxseq_length)
+    loss, optimizer = BiLSTM.model_build(logits, Y, learning_rate)
+
+prediction = tf.nn.softmax(logits)
+correct_pred = tf.equal(tf.argmax(prediction, 1), tf.argmax(Y, 1))
+accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
+
+init = tf.global_variables_initializer()
+
+total_batch = int(Total_size / Batch_size)
+
+print("Start training!")
+
 
 BiLSTM = Bi_LSTM.Bi_LSTM(lstm_units, Maxseq_length, num_class)
 
