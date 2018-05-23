@@ -2,7 +2,7 @@
 **Word2Vec**을 통해 임베딩 된 네이버 영화 리뷰 데이터를 **BiLSTM**을 통해 긍정, 부정을 분류해 주는 프로젝트
 
 ## 1. 모델 구조도
-![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic_1.PNG "Model")
+![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_1.PNG "Model")
 
 1. 정답이 있는 네이버 영화 리뷰 데이터 15만건(박은정님 제공)에 대해서 **품사 태깅**
 
@@ -22,6 +22,6 @@
 1. Word2Vec_train.py로 품사 태깅한 단어들에 대해서 Word2Vec 학습
 
 2. Word2Vec_Tensorboard.py를 통해 시각화
-
+![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_2.png "Word2Vec Tensorboard")
 3. Bi_LSTM.train.py를 통해 이진 분류기 학습
 
