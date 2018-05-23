@@ -24,5 +24,12 @@
 
 2. Word2Vec_Tensorboard.py를 통해 시각화
 
-3. Bi_LSTM.train.py를 통해 이진 분류기 학습
+3. Bi_LSTM_train.py를 통해 이진 분류기 학습
 
+## 4. 결과
+
+![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_3.png "Result")
+
+- Bi_LSTM_test.py를 통해 test data에 대해서 성능 확인
+
+- Doc2Vec, Termexistance Naive Bayes에 의한 성능 보다 뛰어남([박은정](https://www.slideshare.net/lucypark/nltk-gensim))
