@@ -77,7 +77,7 @@ total_batch = int(Total_size / Batch_size)
 
 print("Start training!")
 
-modelName = "C:\\Users\\jbk48\\OneDrive\\바탕 화면\\nsmc-master\\BiLSTM_model.ckpt"
+modelName = "C:\\Users\\jbk48\\Desktop\\Sentimental-Analysis-master\\Sentimental-Analysis-master\\Bidirectional_LSTM\\BiLSTM_model.ckpt"
 saver = tf.train.Saver()
 
 with tf.Session() as sess:
