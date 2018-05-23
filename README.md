@@ -17,4 +17,11 @@
 - gensim
 - numpy
 
-## 3. 품사 태깅
+## 3. 학습
+
+1. Word2Vec_train.py로 품사 태깅한 단어들에 대해서 Word2Vec 학습
+
+2. Word2Vec_Tensorboard.py를 통해 시각화
+
+3. Bi_LSTM.train.py를 통해 이진 분류기 학습
+
