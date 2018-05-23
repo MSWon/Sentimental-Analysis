@@ -11,7 +11,7 @@ import codecs
 import os
 import numpy as np
 
-os.chdir("C:\\Users\\jbk48\\OneDrive\\바탕 화면\\Movie_rating_data")
+os.chdir("C:\\Users\\jbk48\\Desktop\\Sentimental-Analysis-master\\Sentimental-Analysis-master\\Word2Vec")
 
 ## import model
 model = gensim.models.word2vec.Word2Vec.load('Word2vec.model')
@@ -44,7 +44,7 @@ writer = tf.summary.FileWriter(path, sess.graph)
 config = projector.ProjectorConfig()
 embed = config.embeddings.add()
 embed.tensor_name = 'embedding'
-embed.metadata_path =  'C:\\Users\\jbk48\\OneDrive\\metadata.tsv'
+embed.metadata_path =  'C:\\Users\\jbk48\\Desktop\\Sentimental-Analysis-master\\Sentimental-Analysis-master\\Word2Vec\\metadata.tsv'
 # Specify the width and height of a single thumbnail.
 projector.visualize_embeddings(writer, config)
 saver.save(sess, path + '/model.ckpt' , global_step=max_size)
