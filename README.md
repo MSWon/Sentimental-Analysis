@@ -32,4 +32,4 @@
 
 - Bi_LSTM_test.py를 통해 test data에 대해서 성능 확인
 
-- Doc2Vec, Termexistance Naive Bayes에 의한 성능 보다 뛰어남([박은정](https://www.slideshare.net/lucypark/nltk-gensim))
+- Doc2vec, Terme-xistance Naive Bayes에 의한 성능 보다 뛰어남([박은정](https://www.slideshare.net/lucypark/nltk-gensim))
