@@ -10,3 +10,11 @@
 
 3. 단어 벡터들을 **BiLSTM**에 넣어서 모든 state들에 대해서 **fully connected layer**와 **Softmax**함수를 이용해 분류
 
+## 2. 필요한 패키지
+
+- konlpy
+- tensorflow
+- gensim
+- numpy
+
+## 3. 품사 태깅
