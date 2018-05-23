@@ -19,9 +19,11 @@
 
 ## 3. 학습
 
+![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_2.png "Word2Vec Tensorboard")
+
 1. Word2Vec_train.py로 품사 태깅한 단어들에 대해서 Word2Vec 학습
 
 2. Word2Vec_Tensorboard.py를 통해 시각화
-![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_2.png "Word2Vec Tensorboard")
+
 3. Bi_LSTM.train.py를 통해 이진 분류기 학습
 
