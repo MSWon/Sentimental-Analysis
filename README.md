@@ -28,6 +28,8 @@
 
 ## 4. 결과
 
+![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_4.png "Result")
+
 ![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_3.PNG "Result")
 
 - Bi_LSTM_test.py를 통해 test data에 대해서 성능 확인
