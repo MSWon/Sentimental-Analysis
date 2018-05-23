@@ -12,7 +12,7 @@ import tensorflow as tf
 import numpy as np
 import codecs
 
-os.chdir("C:\\Users\\jbk48\\OneDrive\\바탕 화면\\Movie_rating_data")
+os.chdir("C:\\Users\\jbk48\\Desktop\\Sentimental-Analysis-master\\Sentimental-Analysis-master\\Word2Vec\\Movie_rating_data")
 
 def read_data(filename):    
     with open(filename, 'r',encoding='utf-8') as f:
