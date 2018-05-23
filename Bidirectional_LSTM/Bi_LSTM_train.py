@@ -60,23 +60,6 @@ total_batch = int(Total_size / Batch_size)
 
 print("Start training!")
 
-
-BiLSTM = Bi_LSTM.Bi_LSTM(lstm_units, Maxseq_length, num_class)
-
-with tf.variable_scope("loss", reuse = tf.AUTO_REUSE):
-    logits = BiLSTM.logits(X, BiLSTM.W, BiLSTM.b, seq_len, Maxseq_length)
-    loss, optimizer = BiLSTM.model_build(logits, Y, learning_rate)
-
-prediction = tf.nn.softmax(logits)
-correct_pred = tf.equal(tf.argmax(prediction, 1), tf.argmax(Y, 1))
-accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
-
-init = tf.global_variables_initializer()
-
-total_batch = int(Total_size / Batch_size)
-
-print("Start training!")
-
 modelName = "C:\\Users\\jbk48\\Desktop\\Sentimental-Analysis-master\\Sentimental-Analysis-master\\Bidirectional_LSTM\\BiLSTM_model.ckpt"
 saver = tf.train.Saver()
 
