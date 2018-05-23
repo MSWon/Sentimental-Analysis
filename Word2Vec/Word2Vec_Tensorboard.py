@@ -44,8 +44,9 @@ writer = tf.summary.FileWriter(path, sess.graph)
 config = projector.ProjectorConfig()
 embed = config.embeddings.add()
 embed.tensor_name = 'embedding'
-embed.metadata_path =  'C:\\Users\\jbk48\\Desktop\\Sentimental-Analysis-master\\Sentimental-Analysis-master\\Word2Vec\\metadata.tsv'
+embed.metadata_path =  'metadata.tsv'
 # Specify the width and height of a single thumbnail.
 projector.visualize_embeddings(writer, config)
 saver.save(sess, path + '/model.ckpt' , global_step=max_size)
-## cmd 실행후 -> tensorboard --logdir=./word2vec 입력
+## cmd 실행후 -> 1. cd C:\Users\jbk48\Desktop\Sentimental-Analysis-master\Sentimental-Analysis-master\Word2Vec
+##              2. tensorboard --logdir=./word2vec 입력
