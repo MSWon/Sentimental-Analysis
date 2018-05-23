@@ -41,5 +41,6 @@ for epoch in range(30):
     model.alpha -= 0.002
     model.min_alpha = model.alpha
     
+os.chdir("C:\\Users\\jbk48\\Desktop\\Sentimental-Analysis-master\\Sentimental-Analysis-master\\Word2Vec")    
 model.save('Word2vec.model')
 model.most_similar('팝콘/Noun',topn = 20)  ## topn = len(model.wv.vocab)
