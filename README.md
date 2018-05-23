@@ -15,7 +15,6 @@
 - [konlpy](http://konlpy.org/en/v0.4.4/)
 - [tensorflow >= 1.5.0](https://www.tensorflow.org/)
 - [gensim](https://radimrehurek.com/gensim/)
-- [numpy]()
 
 ## 3. 학습
 
