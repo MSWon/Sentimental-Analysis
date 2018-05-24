@@ -44,4 +44,4 @@
 ![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_4.png "Result")
 
 
-- Grade_review.py를 통해 직접 입력한 문장에 
+- Grade_review.py를 통해 직접 입력한 문장에 성능 확인
