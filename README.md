@@ -16,22 +16,30 @@
 - [tensorflow >= 1.5.0](https://www.tensorflow.org/)
 - [gensim](https://radimrehurek.com/gensim/)
 
-## 3. 학습
+## 3. 데이터
+
+- Training data : 영화 리뷰 데이터 15만건 [ratings_train.txt](https://github.com/e9t/nsmc)
+
+- Test data : 영화 리뷰 데이터 5만건 [ratings_test.txt](https://github.com/e9t/nsmc)
+
+## 4. 학습
 
 ![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_2.png "Word2Vec Tensorboard")
 
-1. Word2Vec_train.py로 품사 태깅한 단어들에 대해서 Word2Vec 학습
+1. Word2Vec_train.py로 품사 태깅한 단어들에 대해서 Word2Vec 학습 후 모델 저장 [Word2vec.model](https://drive.google.com/file/d/1Jxf_F_ibneTNRe_4glcWTYmj0TgLh8fP/view?usp=sharing)
 
 2. Word2Vec_Tensorboard.py를 통해 시각화
 
 3. Bi_LSTM_train.py를 통해 이진 분류기 학습
 
-## 4. 결과
+## 5. 결과
+
+![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_3.png "Result-1")
+
+- Bi_LSTM_test.py를 통해 test data에 대해서 성능 확인 (**84.53%**)
+
+- Doc2Vec, Term-existance Naive Bayes에 의한 성능 보다 뛰어남([박은정](https://www.slideshare.net/lucypark/nltk-gensim))
 
 ![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_4.png "Result")
 
-![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_3.png "Result")
-
-- Bi_LSTM_test.py를 통해 test data에 대해서 성능 확인
-
-- Doc2vec, Terme-xistance Naive Bayes에 의한 성능 보다 뛰어남([박은정](https://www.slideshare.net/lucypark/nltk-gensim))
+- Grade_review.py를 통해 직접 입력한 문장에 
