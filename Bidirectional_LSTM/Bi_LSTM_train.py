@@ -39,12 +39,13 @@ learning_rate = 0.001
 lstm_units = 128
 num_class = 2
 training_epochs = 10
+keep_prob = 0.75
 
 X = tf.placeholder(tf.float32, shape = [None, Maxseq_length, Vector_size], name = 'X')
 Y = tf.placeholder(tf.float32, shape = [None, num_class], name = 'Y')
 seq_len = tf.placeholder(tf.int32, shape = [None])
 
-BiLSTM = Bi_LSTM.Bi_LSTM(lstm_units, Maxseq_length, num_class)
+BiLSTM = Bi_LSTM.Bi_LSTM(lstm_units, Maxseq_length, num_class, keep_prob)
 
 with tf.variable_scope("loss", reuse = tf.AUTO_REUSE):
     logits = BiLSTM.logits(X, BiLSTM.W, BiLSTM.b, seq_len, Maxseq_length)
