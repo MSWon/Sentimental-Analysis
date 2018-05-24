@@ -26,11 +26,11 @@
 
 ![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_2.png "Word2Vec Tensorboard")
 
-1. Word2Vec_train.py로 품사 태깅한 단어들에 대해서 Word2Vec 학습 후 모델 저장 [Word2vec.model](https://drive.google.com/file/d/1Jxf_F_ibneTNRe_4glcWTYmj0TgLh8fP/view?usp=sharing)
+1. **Word2Vec_train.py**로 품사 태깅한 단어들에 대해서 Word2Vec 학습 후 모델 저장 [Word2vec.model](https://drive.google.com/file/d/1Jxf_F_ibneTNRe_4glcWTYmj0TgLh8fP/view?usp=sharing)
 
-2. Word2Vec_Tensorboard.py를 통해 시각화
+2. **Word2Vec_Tensorboard.py**를 통해 시각화
 
-3. Bi_LSTM_train.py를 통해 이진 분류기 학습
+3. **Bi_LSTM_train.py**를 통해 이진 분류기 학습
 
 ## 5. 결과
 
