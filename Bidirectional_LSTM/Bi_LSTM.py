@@ -9,19 +9,19 @@ import tensorflow as tf
 
 class Bi_LSTM():
     
-    def __init__(self, lstm_units, Maxseq_length, num_class):
+    def __init__(self, lstm_units, Maxseq_length, num_class, keep_prob):
         
         self.lstm_units = lstm_units
         
         with tf.variable_scope('forward', reuse = tf.AUTO_REUSE):
             
             self.lstm_fw_cell = tf.nn.rnn_cell.LSTMCell(lstm_units, forget_bias=1.0, state_is_tuple=True)
-            self.lstm_fw_cell = tf.contrib.rnn.DropoutWrapper(self.lstm_fw_cell,output_keep_prob=0.75)
+            self.lstm_fw_cell = tf.contrib.rnn.DropoutWrapper(self.lstm_fw_cell, output_keep_prob = keep_prob)
             
         with tf.variable_scope('backward', reuse = tf.AUTO_REUSE):
             
             self.lstm_bw_cell = tf.nn.rnn_cell.LSTMCell(lstm_units, forget_bias=1.0, state_is_tuple=True)
-            self.lstm_bw_cell = tf.contrib.rnn.DropoutWrapper(self.lstm_fw_cell,output_keep_prob=0.75)
+            self.lstm_bw_cell = tf.contrib.rnn.DropoutWrapper(self.lstm_fw_cell, output_keep_prob = keep_prob)
         
         with tf.variable_scope('Weights', reuse = tf.AUTO_REUSE):
            
