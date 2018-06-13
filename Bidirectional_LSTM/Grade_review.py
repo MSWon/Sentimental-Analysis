@@ -28,7 +28,8 @@ BiLSTM = Bi_LSTM.Bi_LSTM(lstm_units, Maxseq_length, num_class, keep_prob)
 
 with tf.variable_scope("loss", reuse = tf.AUTO_REUSE):
     logits = BiLSTM.logits(X, BiLSTM.W, BiLSTM.b, seq_len, Maxseq_length)
-    loss, optimizer, _ = BiLSTM.model_build(logits, Y, learning_rate)
+    ## loss, optimizer, _ = BiLSTM.model_build(logits, Y, learning_rate)
+    loss, optimizer = BiLSTM.model_build(logits, Y, learning_rate)
 
 prediction = tf.nn.softmax(logits)
 
