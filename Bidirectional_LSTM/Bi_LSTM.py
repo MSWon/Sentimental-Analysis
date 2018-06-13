@@ -48,9 +48,10 @@ class Bi_LSTM():
             
             loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits = logits , labels = labels)) # Softmax loss
             optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss) # Adam Optimizer
-            tf.summary.scalar('loss', loss)
-            merged = tf.summary.merge_all()
+            ## tf.summary.scalar('loss', loss)
+            ## merged = tf.summary.merge_all()
             
-        return loss, optimizer, merged
+        ## return loss, optimizer, merged
+        return loss, optimizer
     
     
