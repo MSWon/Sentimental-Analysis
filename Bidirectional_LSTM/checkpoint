@@ -1,0 +1,2 @@
+model_checkpoint_path: "/home/raid/jbk4860/nsmc-master/code/BiLSTM/BiLSTM_model.ckpt"
+all_model_checkpoint_paths: "/home/raid/jbk4860/nsmc-master/code/BiLSTM/BiLSTM_model.ckpt"
