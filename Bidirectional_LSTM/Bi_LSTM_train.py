@@ -34,7 +34,7 @@ Batch_size = 32
 Total_size = len(train_X)
 Vector_size = 300
 seq_length = [len(x) for x in train_X]
-Maxseq_length = max(seq_length)
+Maxseq_length = max(seq_length) ## 95
 learning_rate = 0.001
 lstm_units = 128
 num_class = 2
@@ -45,10 +45,10 @@ X = tf.placeholder(tf.float32, shape = [None, Maxseq_length, Vector_size], name 
 Y = tf.placeholder(tf.float32, shape = [None, num_class], name = 'Y')
 seq_len = tf.placeholder(tf.int32, shape = [None])
 
-BiLSTM = Bi_LSTM.Bi_LSTM(lstm_units, Maxseq_length, num_class, keep_prob)
+BiLSTM = Bi_LSTM.Bi_LSTM(lstm_units, num_class, keep_prob)
 
 with tf.variable_scope("loss", reuse = tf.AUTO_REUSE):
-    logits = BiLSTM.logits(X, BiLSTM.W, BiLSTM.b, seq_len, Maxseq_length)
+    logits = BiLSTM.logits(X, BiLSTM.W, BiLSTM.b, seq_len)
     loss, optimizer, merged = BiLSTM.model_build(logits, Y, learning_rate)
 
 prediction = tf.nn.softmax(logits)
@@ -69,8 +69,8 @@ with tf.Session() as sess:
 
     start_time = time.time()
     sess.run(init)
-    ## train_writer = tf.summary.FileWriter('C:\\Users\\jbk48\\Desktop\\Sentimental-Analysis-master\\Sentimental-Analysis-master\\Bidirectional_LSTM', sess.graph)
-    ## i = 0
+    train_writer = tf.summary.FileWriter('C:\\Users\\jbk48\\Desktop\\Sentimental-Analysis-master\\Sentimental-Analysis-master\\Bidirectional_LSTM', sess.graph)
+    i = 0
     for epoch in range(training_epochs):
 
         avg_loss = 0.
@@ -81,15 +81,15 @@ with tf.Session() as sess:
             batch_seq_length = seq_length[step*Batch_size : step*Batch_size+Batch_size]
             
             train_batch_X = W2V.Zero_padding(train_batch_X, Batch_size, Maxseq_length, Vector_size)
-
-            ## summary, _ = sess.run([merged,optimizer], feed_dict={X: train_batch_X, Y: train_batch_Y, seq_len: batch_seq_length})
-            sess.run(optimizer, feed_dict={X: train_batch_X, Y: train_batch_Y, seq_len: batch_seq_length})
+            
+            summary, _ = sess.run([merged,optimizer], feed_dict={X: train_batch_X, Y: train_batch_Y, seq_len: batch_seq_length})
             # Compute average loss
             loss_ = sess.run(loss, feed_dict={X: train_batch_X, Y: train_batch_Y, seq_len: batch_seq_length})
             avg_loss += sess.run(loss, feed_dict={X: train_batch_X, Y: train_batch_Y, seq_len: batch_seq_length})/total_batch
+            
             acc = sess.run(accuracy , feed_dict={X: train_batch_X, Y: train_batch_Y, seq_len: batch_seq_length})
-            ## train_writer.add_summary(summary, i)
-            ## i += 1
+            train_writer.add_summary(summary, i)
+            i += 1
             print("step:", '%04d' %(step+1), "loss = {:.6f} accuracy= {:.6f}".format(loss_, acc))
     
 
@@ -98,7 +98,7 @@ with tf.Session() as sess:
     second = int(duration) % 60
     print("%dminutes %dseconds" % (minute,second))
     save_path = saver.save(sess, modelName)
-    ## train_writer.close()
+    train_writer.close()
     print ('save_path',save_path)
     
     ## cmd 실행 -> cd C:\Users\jbk48\Desktop\Sentimental-Analysis-master\Sentimental-Analysis-master\Bidirectional_LSTM
