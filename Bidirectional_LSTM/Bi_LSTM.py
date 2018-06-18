@@ -9,7 +9,7 @@ import tensorflow as tf
 
 class Bi_LSTM():
     
-    def __init__(self, lstm_units, Maxseq_length, num_class, keep_prob):
+    def __init__(self, lstm_units, num_class, keep_prob):
         
         self.lstm_units = lstm_units
         
@@ -25,21 +25,19 @@ class Bi_LSTM():
         
         with tf.variable_scope('Weights', reuse = tf.AUTO_REUSE):
            
-            self.W = tf.get_variable(name="W", shape=[2 * lstm_units* Maxseq_length, num_class],
+            self.W = tf.get_variable(name="W", shape=[2 * lstm_units, num_class],
                                 dtype=tf.float32, initializer = tf.contrib.layers.xavier_initializer())
             self.b = tf.get_variable(name="b", shape=[num_class], dtype=tf.float32,
                                 initializer=tf.zeros_initializer())
             
             
-    def logits(self, X, W, b, seq_len, Maxseq_length):
+    def logits(self, X, W, b, seq_len):
         
-        (output_fw, output_bw), states   = tf.nn.bidirectional_dynamic_rnn(self.lstm_fw_cell, self.lstm_bw_cell,dtype=tf.float32,
+        (output_fw, output_bw), states = tf.nn.bidirectional_dynamic_rnn(self.lstm_fw_cell, self.lstm_bw_cell,dtype=tf.float32,
                                                                             inputs = X, sequence_length = seq_len)
-        ## concat into 2-D
-        outputs = tf.concat([output_fw, output_bw], axis=2)
-        outputs_flat = tf.reshape(outputs, [-1, 2 * self.lstm_units*Maxseq_length])
-        pred = tf.matmul(outputs_flat, W) + b
-        
+        ## concat fw, bw final states
+        outputs = tf.concat([states[0][1], states[1][1], axis=1)
+        pred = tf.matmul(outputs, W) + b        
         return pred
         
     def model_build(self, logits, labels, learning_rate = 0.001):
@@ -48,10 +46,8 @@ class Bi_LSTM():
             
             loss = tf.reduce_mean(tf.nn.softmax_cross_entropy_with_logits(logits = logits , labels = labels)) # Softmax loss
             optimizer = tf.train.AdamOptimizer(learning_rate=learning_rate).minimize(loss) # Adam Optimizer
-            ## tf.summary.scalar('loss', loss)
-            ## merged = tf.summary.merge_all()
+            tf.summary.scalar('loss', loss)
+            merged = tf.summary.merge_all()
             
-        ## return loss, optimizer, merged
-        return loss, optimizer
-    
-    
+        return loss, optimizer, merged
+  
