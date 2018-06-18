@@ -24,10 +24,10 @@ X = tf.placeholder(tf.float32, shape = [None, Maxseq_length, Vector_size], name 
 Y = tf.placeholder(tf.float32, shape = [None, num_class], name = 'Y')
 seq_len = tf.placeholder(tf.int32, shape = [None])
 
-BiLSTM = Bi_LSTM.Bi_LSTM(lstm_units, Maxseq_length, num_class, keep_prob)
+BiLSTM = Bi_LSTM.Bi_LSTM(lstm_units, num_class, keep_prob)
 
 with tf.variable_scope("loss", reuse = tf.AUTO_REUSE):
-    logits = BiLSTM.logits(X, BiLSTM.W, BiLSTM.b, seq_len, Maxseq_length)
+    logits = BiLSTM.logits(X, BiLSTM.W, BiLSTM.b, seq_len)
     loss, optimizer = BiLSTM.model_build(logits, Y, learning_rate)
 
 prediction = tf.nn.softmax(logits)
