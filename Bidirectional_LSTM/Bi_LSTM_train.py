@@ -49,7 +49,7 @@ BiLSTM = Bi_LSTM.Bi_LSTM(lstm_units, num_class, keep_prob)
 
 with tf.variable_scope("loss", reuse = tf.AUTO_REUSE):
     logits = BiLSTM.logits(X, BiLSTM.W, BiLSTM.b, seq_len)
-    loss, optimizer, merged = BiLSTM.model_build(logits, Y, learning_rate)
+    loss, optimizer = BiLSTM.model_build(logits, Y, learning_rate)
 
 prediction = tf.nn.softmax(logits)
 correct_pred = tf.equal(tf.argmax(prediction, 1), tf.argmax(Y, 1))
@@ -82,11 +82,11 @@ with tf.Session() as sess:
             
             train_batch_X = W2V.Zero_padding(train_batch_X, Batch_size, Maxseq_length, Vector_size)
             
-            summary, _ = sess.run([merged,optimizer], feed_dict={X: train_batch_X, Y: train_batch_Y, seq_len: batch_seq_length})
+            sess.run(optimizer, feed_dict={X: train_batch_X, Y: train_batch_Y, seq_len: batch_seq_length})
             # Compute average loss
             loss_ = sess.run(loss, feed_dict={X: train_batch_X, Y: train_batch_Y, seq_len: batch_seq_length})
             avg_loss += sess.run(loss, feed_dict={X: train_batch_X, Y: train_batch_Y, seq_len: batch_seq_length})/total_batch
-            
+            summary = sess.run(BiLSTM.graph_build(avg_loss))
             acc = sess.run(accuracy , feed_dict={X: train_batch_X, Y: train_batch_Y, seq_len: batch_seq_length})
             train_writer.add_summary(summary, i)
             i += 1
