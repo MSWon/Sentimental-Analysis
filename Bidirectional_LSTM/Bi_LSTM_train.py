@@ -88,7 +88,7 @@ with tf.Session() as sess:
             avg_loss += loss_ / total_batch
             
             acc = sess.run(accuracy , feed_dict={X: train_batch_X, Y: train_batch_Y, seq_len: batch_seq_length})
-            avg_acc = += acc / total_batch
+            avg_acc  += acc / total_batch
             print("epoch : {:02d} step : {:04d} loss = {:.6f} accuracy= {:.6f}".format(epoch+1, step+1, loss_, acc))
 
         summary = sess.run(BiLSTM.graph_build(avg_loss, avg_acc))       
