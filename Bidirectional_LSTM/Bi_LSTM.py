@@ -49,8 +49,9 @@ class Bi_LSTM():
             
         return loss, optimizer
     
-    def graph_build(self, avg_loss):
+    def graph_build(self, avg_loss, avg_acc):
         
-        tf.summary.scalar('avg_loss', avg_loss)
+        tf.summary.scalar('Loss', avg_loss)
+        tf.summary.scalar('Accuracy', avg_acc)
         merged = tf.summary.merge_all()
         return merged
