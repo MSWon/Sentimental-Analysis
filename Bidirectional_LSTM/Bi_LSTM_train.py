@@ -73,7 +73,7 @@ with tf.Session() as sess:
     i = 0
     for epoch in range(training_epochs):
 
-        avg_loss = 0.
+        avg_acc, avg_loss = 0. , 0.
         for step in range(total_batch):
 
             train_batch_X = train_X_[step*Batch_size : step*Batch_size+Batch_size]
@@ -85,13 +85,15 @@ with tf.Session() as sess:
             sess.run(optimizer, feed_dict={X: train_batch_X, Y: train_batch_Y, seq_len: batch_seq_length})
             # Compute average loss
             loss_ = sess.run(loss, feed_dict={X: train_batch_X, Y: train_batch_Y, seq_len: batch_seq_length})
-            avg_loss += sess.run(loss, feed_dict={X: train_batch_X, Y: train_batch_Y, seq_len: batch_seq_length})/total_batch
-            summary = sess.run(BiLSTM.graph_build(avg_loss))
+            avg_loss += loss_ / total_batch
+            
             acc = sess.run(accuracy , feed_dict={X: train_batch_X, Y: train_batch_Y, seq_len: batch_seq_length})
-            train_writer.add_summary(summary, i)
-            i += 1
-            print("step:", '%04d' %(step+1), "loss = {:.6f} accuracy= {:.6f}".format(loss_, acc))
-    
+            avg_acc = += acc / total_batch
+            print("epoch : {:02d} step : {:04d} loss = {:.6f} accuracy= {:.6f}".format(epoch+1, step+1, loss_, acc))
+
+        summary = sess.run(BiLSTM.graph_build(avg_loss, avg_acc))       
+        train_writer.add_summary(summary, i)
+        i += 1
 
     duration = time.time() - start_time
     minute = int(duration / 60)
