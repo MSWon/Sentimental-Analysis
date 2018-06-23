@@ -1,0 +1,2 @@
+model_checkpoint_path: "C:\\Users\\jbk48\\Desktop\\Sentimental-Analysis-master\\Sentimental-Analysis-master\\Bidirectional_LSTM\\BiLSTM_model.ckpt"
+all_model_checkpoint_paths: "C:\\Users\\jbk48\\Desktop\\Sentimental-Analysis-master\\Sentimental-Analysis-master\\Bidirectional_LSTM\\BiLSTM_model.ckpt"
