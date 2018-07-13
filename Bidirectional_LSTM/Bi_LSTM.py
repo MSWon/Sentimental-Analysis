@@ -21,7 +21,7 @@ class Bi_LSTM():
         with tf.variable_scope('backward', reuse = tf.AUTO_REUSE):
             
             self.lstm_bw_cell = tf.nn.rnn_cell.LSTMCell(lstm_units, forget_bias=1.0, state_is_tuple=True)
-            self.lstm_bw_cell = tf.contrib.rnn.DropoutWrapper(self.lstm_fw_cell, output_keep_prob = keep_prob)
+            self.lstm_bw_cell = tf.contrib.rnn.DropoutWrapper(self.lstm_bw_cell, output_keep_prob = keep_prob)
         
         with tf.variable_scope('Weights', reuse = tf.AUTO_REUSE):
            
