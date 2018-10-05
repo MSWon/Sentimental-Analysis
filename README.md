@@ -47,7 +47,7 @@
 - Doc2Vec, Term-existance Naive Bayes에 의한 성능 보다 뛰어남([박은정](https://www.slideshare.net/lucypark/nltk-gensim))
 
 
-![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_4.png "Result")
+![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_5.png "Result")
 
 
 - Grade_review.py를 통해 직접 입력한 문장에 성능 확인
