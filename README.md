@@ -40,9 +40,9 @@
 
 ## 5. 결과
 
-![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_3.png "Result-1")
 
-- Bi_LSTM_test.py를 통해 test data에 대해서 성능 확인 (**84.53%**)
+
+- Bi_LSTM_test.py를 통해 test data에 대해서 성능 확인 (**86.52%**)
 
 - Doc2Vec, Term-existance Naive Bayes에 의한 성능 보다 뛰어남([박은정](https://www.slideshare.net/lucypark/nltk-gensim))
 
