@@ -34,6 +34,10 @@
 
 4. **Bi_LSTM_train.py**를 통해 이진 분류기 학습
 
+![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_5.png "Accuracy graph")
+
+epoch 4 이후에 overfitting이 되므로 epoch 4에서 early stopping을 한다.
+
 ## 5. 결과
 
 ![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_3.png "Result-1")
