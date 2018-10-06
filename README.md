@@ -26,13 +26,15 @@
 
 ![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_2.png "Word2Vec Tensorboard")
 
-1. **Word2Vec.py** , **Bi_LSTM.py**를 패키지 폴더로 이동 (C:\Users\jbk48\Anaconda3\Lib\site-packages)
+1. Sentimental-Analysis 폴더를 github로부터 다운로드
 
 2. **Word2Vec_train.py**로 품사 태깅한 단어들에 대해서 Word2Vec 학습 후 모델 저장 [Word2vec.model](https://drive.google.com/file/d/1Jxf_F_ibneTNRe_4glcWTYmj0TgLh8fP/view?usp=sharing)
 
 3. **Word2Vec_Tensorboard.py**를 통해 시각화
 
-4. **Bi_LSTM_train.py**를 통해 이진 분류기 학습
+4. cd ./Sentimental-Analysis-master/Sentimental-Analysis-master/Bidirectional_LSTM 경로로 
+
+5. **Bi_LSTM_train.py**를 통해 이진 분류기 학습
 
 ![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_4.png "Accuracy graph")
 
