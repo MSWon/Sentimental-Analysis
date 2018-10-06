@@ -1,0 +1,2 @@
+model_checkpoint_path: "BiLSTM_model.ckpt"
+all_model_checkpoint_paths: "BiLSTM_model.ckpt"
