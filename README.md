@@ -32,9 +32,9 @@
 
 3. **Word2Vec_Tensorboard.py**를 통해 시각화
 
-4. cd ./Sentimental-Analysis-master/Sentimental-Analysis-master/Bidirectional_LSTM 경로로 이동
+4. cmd창에 cd ./Sentimental-Analysis-master/Sentimental-Analysis-master/Bidirectional_LSTM 경로로 이동
 
-5. **Bi_LSTM_train.py**를 통해 이진 분류기 학습
+5. **python Bi_LSTM_train.py** 명령어를 통해 이진 분류기 학습
 
 ![alt text](https://github.com/MSWon/Sentimental-Analysis/blob/master/pic/pic_4.png "Accuracy graph")
 
