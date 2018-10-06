@@ -13,8 +13,8 @@ import Bi_LSTM
 import Word2Vec
 
 W2V = Word2Vec.Word2Vec()
-os.chdir("C:\\Users\\jbk48\\Desktop\\Sentimental-Analysis-master\\Sentimental-Analysis-master\\Word2Vec\\Movie_rating_data")
-test_data = W2V.read_data("ratings_test.txt")
+os.chdir("..")
+test_data = W2V.read_data("./Word2Vec/Movie_rating_data/ratings_test.txt")
 
 ## tokenize the data we have
 print("Tokenize Start!\nCould take minutes...")
@@ -37,9 +37,9 @@ lstm_units = 128
 num_class = 2
 keep_prob = 1.0
 
-os.chdir("C:\\Users\\jbk48\\Desktop\\Sentimental-Analysis-master\\Sentimental-Analysis-master\\Word2Vec")
+
 test_Y_ = W2V.One_hot(test_Y)  ## Convert to One-hot
-test_X_ = W2V.Convert2Vec("Word2vec.model",test_X)  ## import word2vec model where you have trained before
+test_X_ = W2V.Convert2Vec("./Word2Vec/Word2vec.model",test_X)  ## import word2vec model where you have trained before
 
 X = tf.placeholder(tf.float32, shape = [None, Maxseq_length, Vector_size], name = 'X')
 Y = tf.placeholder(tf.float32, shape = [None, num_class], name = 'Y')
@@ -55,7 +55,7 @@ prediction = tf.nn.softmax(logits)
 correct_pred = tf.equal(tf.argmax(prediction, 1), tf.argmax(Y, 1))
 accuracy = tf.reduce_mean(tf.cast(correct_pred, tf.float32))
 
-modelName = "C:\\Users\\jbk48\\Desktop\\Sentimental-Analysis-master\\Sentimental-Analysis-master\\Bidirectional_LSTM\\BiLSTM_model.ckpt"
+modelName = "./Bidirectional_LSTM/BiLSTM_model.ckpt"
 init = tf.global_variables_initializer()
 saver = tf.train.Saver()
 
