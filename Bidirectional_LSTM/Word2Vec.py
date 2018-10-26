@@ -42,7 +42,7 @@ class Word2Vec():
                     sub.append(np.random.uniform(-0.25,0.25,300)) ## used for OOV words
             word_vec.append(sub)
         
-        return word_vec
+        return np.array(word_vec)
     
     def Zero_padding(self, train_batch_X, Batch_size, Maxseq_length, Vector_size):
         
@@ -64,7 +64,7 @@ class Word2Vec():
             one_hot[index] = 1
             result.append(one_hot)
         
-        return result
+        return np.array(result)
     
     
     
